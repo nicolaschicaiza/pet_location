@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<observacion>
+  <entidad nombre="mesa">
+    <recursoIoT tipo="sensor">
+        <caracteristica propiedad="temperatura">
+        </caracteristica>
+        <medicion>24</medicion>
+        <unidad>grados</unidad>
+        <hora utc="-5">7:26</hora>
+        <lugar lat="24.7" lon="76.5" ele="1756"></lugar>
+    </recursoIoT>
+        <recursoIoT tipo="actuador">
+        <caracteristica propiedad="luz">
+        </caracteristica>
+        <!-- 1: Encendido 2:apagado -->
+        <estado>1</estado>
+        <hora utc="-5">7:26</hora>
+        <lugar lat="24.7" lon="76.5" ele="1756"></lugar>
+    </recursoIoT>
+  </entidad>
+</observacion>
