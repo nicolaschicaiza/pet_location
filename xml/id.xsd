@@ -1,0 +1,48 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="objetoIoT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="gateway">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="propiedades">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="nombre"/>
+                    <xs:element type="xs:string" name="modelo"/>
+                    <xs:element type="xs:string" name="fabricante"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="recursos">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="recursoIoT" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="tipo"/>
+                          <xs:element type="xs:string" name="senal"/>
+                          <xs:element name="voltaje">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:byte" name="rangoinicial" use="optional"/>
+                                  <xs:attribute type="xs:byte" name="rangofinal" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="id"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

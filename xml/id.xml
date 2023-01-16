@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objetoIoT id="192.168.127.15">
+   <gateway>
+      <propiedades>
+         <nombre>ESP8266</nombre>
+         <modelo>nodemcu 12E</modelo>
+         <fabricante>EspressIf</fabricante>
+      </propiedades>
+      <recursos>
+         <recursoIoT>
+            <tipo>sensor</tipo>
+            <senal>analoga</senal>
+            <voltaje rangoinicial="3" rangofinal="30" />
+         </recursoIoT>
+         <recursoIoT>
+            <tipo>actuador</tipo>
+            <senal>digital</senal>
+            <voltaje rangoinicial="0" rangofinal="5" />
+         </recursoIoT>
+      </recursos>
+   </gateway>
+</objetoIoT>
