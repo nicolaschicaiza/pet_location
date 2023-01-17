@@ -1,13 +1,10 @@
-import logo from './logo.svg';
+import React, { Component } from "react";
 import './App.css';
 import LoginButton from './components/LoginButton';
 import Profile from './components/Profile';
 import LogoutButton from './components/LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react';
 
-
-import LoginForm from './components/LoginForm';
-import DataDisplay from './components/DataDisplay';
 
 function App() {
 
