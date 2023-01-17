@@ -5,6 +5,10 @@ import Profile from './components/Profile';
 import LogoutButton from './components/LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react';
 
+
+import LoginForm from './components/LoginForm';
+import DataDisplay from './components/DataDisplay';
+
 function App() {
 
   const {isAuthenticated, isLoading} = useAuth0();
