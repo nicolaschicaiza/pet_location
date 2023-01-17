@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import DataDisplay from './DataDisplay'
 
 const Profile = () => {
     const { user, isAuthenticated} = useAuth0();
@@ -14,7 +15,7 @@ const Profile = () => {
       <pre>
         {JSON.stringify(user)}
       </pre>
-    
+      <DataDisplay/>    
     </div>
   )
   );

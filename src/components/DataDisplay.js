@@ -4,20 +4,18 @@ import { getDataFromThingSpeak } from '../services/ThingSpeakService';
 function DataDisplay() {
   const [data, setData] = useState([]);
 
-  console.log("AQUIIIIII");
 
   useEffect(() => {
     const fetchData = async () => {
       const channelId = '2001088';
       const readKey = 'VPRUHCQ9MV2DNMSH';
-      const fetchedData = await getDataFromThingSpeak(channelId, readKey);
-      setData(fetchedData);
+      const response = await getDataFromThingSpeak(channelId, readKey);
+      const res = await response.json();
+      console.log(res.feeds);
+      setData(res.feeds);
     };
     fetchData();
   }, []);
-
-  console.log(data);
-  
 
   return (
     <table>
@@ -34,6 +32,8 @@ function DataDisplay() {
             <td>{row.created_at}</td>
             <td>{row.field1}</td>
             <td>{row.field2}</td>
+            <td>{row.field3}</td>
+            <td>{row.field4}</td>
           </tr>
         ))}
       </tbody>

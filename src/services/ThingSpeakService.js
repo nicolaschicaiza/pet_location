@@ -1,4 +1,3 @@
-import axios from 'axios';
 
 /**
  * Esta función realiza una petición GET a la API de ThingSpeak utilizando los parámetros recibidos 
@@ -11,12 +10,10 @@ import axios from 'axios';
  */
 export const getDataFromThingSpeak = async (channelId, readKey) => {
   try {
-    const response = await axios.get(
+    const response = await fetch(
       `https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${readKey}`
     );
-    console.log(response.data);
-
-    return response.data;
+    return response;
   } catch (error) {
     throw new Error(error);
   }

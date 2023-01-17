@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 
 import {Auth0Provider} from '@auth0/auth0-react';
+import DataDisplay from './components/DataDisplay';
 
 const domain = 'dev-j4hlmv8yfs1o8so8.us.auth0.com';
 const clientId = 'f9E0RfK8LDuF4gY74HI65NlkIeXwB7ci';
@@ -19,7 +20,6 @@ root.render(
       <App />
     </Auth0Provider>  
   </React.StrictMode>
-
 );
 
 // If you want to start measuring performance in your app, pass a function

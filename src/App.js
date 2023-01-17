@@ -5,7 +5,6 @@ import Profile from './components/Profile';
 import LogoutButton from './components/LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react';
 
-
 function App() {
 
   const {isAuthenticated, isLoading} = useAuth0();
@@ -21,7 +20,6 @@ function App() {
         :
         <LoginButton/>
       }
-       
        <Profile/>
     </div>
   );
