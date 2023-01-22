@@ -4,11 +4,12 @@ import { getDataFromThingSpeak } from '../services/ThingSpeakService';
 function DataDisplay() {
   const [data, setData] = useState([]);
 
+  require("dotenv").config();
 
   useEffect(() => {
     const fetchData = async () => {
-      const channelId = '2001088';
-      const readKey = 'VPRUHCQ9MV2DNMSH';
+      const channelId = process.env.REACT_APP_THINGSPEAK_CHANNEL_ID;
+      const readKey = process.env.REACT_APP_THINGSPEAK_READKEY;
       const response = await getDataFromThingSpeak(channelId, readKey);
       const res = await response.json();
       console.log(res.feeds);

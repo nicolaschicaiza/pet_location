@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import './App.css';
 import LoginButton from './components/LoginButton';
 import Profile from './components/Profile';
