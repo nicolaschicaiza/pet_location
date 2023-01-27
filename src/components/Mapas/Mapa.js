@@ -1,7 +1,7 @@
 import React from "react";
 import { useMemo } from "react";
 
-import { GoogleMap, useLoadScript, Marker, Autocomplete,onLoad,google} from "@react-google-maps/api";
+import { GoogleMap, useLoadScript, Marker} from "@react-google-maps/api";
 
 
 const containerStyle = {
@@ -11,8 +11,10 @@ const containerStyle = {
 };
 
 export default function Home() {
+  require("dotenv").config();
+
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyADMmNu0Siiu7nqmGtDIyUwsaXOwzc5wdo",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API,
   });
 
   if (!isLoaded) return <div>Loading...</div>;
@@ -28,9 +30,7 @@ function Map() {
     
     <GoogleMap mapContainerStyle={containerStyle} 
     zoom={13} center={center}  >
-   
-      
-        <Marker  position={{ lat: 2.441648, lng:  -76.608071 }}/> 
+        <Marker  position={{ lat: 2.44, lng:  -76.60 }}/> 
     </GoogleMap>
   );
 }
