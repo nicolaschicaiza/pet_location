@@ -1,11 +1,13 @@
-import React from 'react';
-
+import React ,{ useState}from 'react';
+import { FaPowerOff } from "react-icons/fa";
+import "./Buzzer.css";
 
 //metodo post con react y fetch links de ayuda:
 //https://jasonwatmore.com/post/2020/02/01/react-fetch-http-post-request-examples
 //https://stackblitz.com/edit/react-http-post-request-examples-fetch?file=App%2FApp.jsx
 
 const Buzzer = () => {
+    const [valueBuzzer, setValueBuzzer] = useState(false);
 
         const apagar = {
             method: 'POST',
@@ -31,15 +33,24 @@ const Buzzer = () => {
             // .then(response => response.json())
             // .then(data => this.setState({ postId: data.id }));
         }
+        const onChangeValue = () => {
+            setValueBuzzer(!valueBuzzer);
+            if (valueBuzzer) {
+                fetch("https://api.thingspeak.com/update.json", encender);
+            } else {
+                fetch("https://api.thingspeak.com/update.json", apagar);
+            }
+        };
 
         return (
-            <div >
-                <h5 >Encender o apagar alarma</h5>
-                <div>
-                <button onClick= {on} > Encender </button>
-                <button onClick= {off} > Apagar </button> 
-                </div>
-            </div>
+            <div className="container-button">
+            <button
+                onClick={onChangeValue}
+                className={`btn btn--off ${valueBuzzer && "btn--on"}`}
+            >
+                <FaPowerOff />
+            </button>
+        </div>
             
         );
     // }
