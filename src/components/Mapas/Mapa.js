@@ -10,7 +10,7 @@ const containerStyle = {
  
 };
 
-export default function Home() {
+function Home() {
   require("dotenv").config();
 
   const { isLoaded } = useLoadScript({
@@ -27,10 +27,11 @@ function Map() {
   const center = useMemo(() => ({ lat: 2.441648, lng:  -76.608071 }), []);
 
   return (
-    
     <GoogleMap mapContainerStyle={containerStyle} 
     zoom={13} center={center}  >
         <Marker  position={{ lat: 2.44, lng:  -76.60 }}/> 
     </GoogleMap>
   );
 }
+
+export { Home };
