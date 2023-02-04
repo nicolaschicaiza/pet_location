@@ -31,6 +31,7 @@ function DataDisplay() {
     };
     fetchData();
   }, []);
+  
   const markers = [];
 
   let cons = (data.length ) - 10;

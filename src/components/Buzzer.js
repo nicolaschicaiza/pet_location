@@ -26,15 +26,28 @@ const Buzzer = () => {
 
   const estados = [];
 
-  let cons = data.length - 1;
+  let cons = data.length - 30;
   if (cons > 0) {
     for (let i = cons; i < data.length; i++) {
       //guardados todos
       estados[i] = parseInt(data[i].field5);
-
+      
       console.log("Estados: " + estados[i]);
     }
   }
+
+
+let est=-2;
+  for(let i=estados.length; i>0; i--){
+    console.log("i: "+i);
+    console.log(estados[i]);
+      if(estados[i] == 0 || estados[i] == 1){
+        est = estados[i];
+        break;
+      }
+  }
+
+  console.log("REsultado: "+est);
 
   const [valueBuzzer, setValueBuzzer] = useState(false);
 
@@ -57,7 +70,7 @@ const Buzzer = () => {
   };
   let estado1 = -1;
   const onChangeValue = () => {
-    if (estados[cons] == 0) {
+    if (est == 0) {
       estado1 = 1;
     } else {
       estado1 = 0;
@@ -74,8 +87,8 @@ const Buzzer = () => {
     <div className="container-button">
       <button
         onClick={onChangeValue}
-        className={`btn   ${estados[cons] == 0 && "btn--off"} ${
-          estados[cons] == 1 && "btn--on"
+        className={`btn   ${est == 0 && "btn--off"} ${
+          est == 1 && "btn--on"
         } `}
       >
         <FaPowerOff />

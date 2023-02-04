@@ -11,7 +11,7 @@
 export const getDataFromThingSpeak = async (channelId, readKey) => {
   try {
     const response = await fetch(
-      `https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${readKey}`
+      `https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${readKey}&results=100`
     );
     return response;
   } catch (error) {
