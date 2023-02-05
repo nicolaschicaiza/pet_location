@@ -87,7 +87,7 @@ let est=-2;
     <div className="container-button">
       <button
         onClick={onChangeValue}
-        className={`btn   ${est == 0 && "btn--off"} ${
+        className={`btn__buzzer ${est == 0 && "btn--off"} ${
           est == 1 && "btn--on"
         } `}
       >
