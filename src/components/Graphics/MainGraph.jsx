@@ -61,20 +61,26 @@ export function Table(props) {
  * @returns
  */
 export function Graph(props) {
+
+    //Obtener los datos de la API
     const data = getData();
     //console.table(data);
 
-    //Areglo con los datos de la temperatura
-    const temp = data.map((item, index) => (
-        item.field3
-    ));
+    if(props.graph === "temp"){
+        
+        //Areglo con los datos de la temperatura
+        const temp = data.map((item, index) => (
+            item.field3
+        ));
+            //console.table(temp);
 
-    console.table(temp);
+        //tabla con todos los datos de la api
+        return (
+            <div>
+                <LineChart chartData={ temp } />
+            </div>
+        );
+    }
 
-    //tabla con todos los datos de la api
-    /*return (
-        <div>
-            <LineChart chartData={ temp } />
-        </div>
-    );*/
+
 }
