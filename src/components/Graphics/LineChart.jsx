@@ -18,6 +18,9 @@ function LineChart( props ) {
         labels.push(i);
     }
 
+    //pasar a string el titulo
+    let title = props.title.toString();
+
     //console.table(data);
 
     const data_obj = {
@@ -45,7 +48,7 @@ function LineChart( props ) {
                     plugins: {
                         title: {
                             display: true,
-                            text: "Users Gained between 2016-2020"
+                            text: title
                         },
                         legend: {
                             display: false

@@ -5,15 +5,20 @@ import './index.css'
 
 import { MainGraph, Graph, Table } from './components/Graphics/MainGraph.jsx';
 //import LineChart from './components/LineChart.jsx'
-
+import {Nav} from './components/Nav/Nav.jsx'
 
 const rootElement = ReactDOM.createRoot(document.getElementById('root'));
 
 rootElement.render(
-	<> 
+	<div> 
+		<Nav />
 
-		<Graph graph="temp"/>
+		<div>
+			<Graph graph="temp" />
+			<Graph graph="hum" />
 
-		<Table />
-	</>
+			
+			<Table />
+		</div>
+	</div>
 );

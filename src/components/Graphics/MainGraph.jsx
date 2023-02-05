@@ -77,9 +77,26 @@ export function Graph(props) {
         //tabla con todos los datos de la api
         return (
             <div>
-                <LineChart chartData={ temp } />
+                <LineChart chartData={ temp } title="Temperatura" />
             </div>
         );
+    }else if(props.graph === "hum"){
+        //Areglo con los datos de la humedad
+        const hum = data.map((item, index) => (
+            item.field4
+        ));
+            //console.table(hum);
+
+        //tabla con todos los datos de la api
+        return (
+            <div>
+                <LineChart chartData={ hum } title="Humedad" />
+            </div>
+        );
+    }else{
+        return (<div>
+
+        </div>);
     }
 
 
