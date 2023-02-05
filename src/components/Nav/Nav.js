@@ -19,6 +19,9 @@ function Nav() {
                                 <a href="#">About</a>
                             </li>
                             <li>
+                                <a href="#">Graphics</a>
+                            </li>
+                            <li>
                                 <a href="#">Portfolio</a>
                                 <ul>
                                     <li>

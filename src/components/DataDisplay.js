@@ -7,7 +7,6 @@ import { useMemo } from "react";
 const containerStyle = {
   width: "100%",
   height: '500px',
- 
 };
 
 function DataDisplay() {
@@ -26,7 +25,7 @@ function DataDisplay() {
       const readKey = process.env.REACT_APP_THINGSPEAK_READKEY;
       const response = await getDataFromThingSpeak(channelId, readKey);
       const res = await response.json();
-      console.log(res.feeds);
+      //console.log(res.feeds);
       setData(res.feeds);
     };
     fetchData();
@@ -42,7 +41,7 @@ function DataDisplay() {
         lat: parseFloat(data[i].field1),
         lng: parseFloat(data[i].field2),
       };
-      console.log(markers[i]); 
+      //console.log(markers[i]); 
     }
    
   }

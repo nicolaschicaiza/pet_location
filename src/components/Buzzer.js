@@ -18,7 +18,7 @@ const Buzzer = () => {
       const readKey = process.env.REACT_APP_THINGSPEAK_READKEY;
       const response = await getDataFromThingSpeak(channelId, readKey);
       const res = await response.json();
-      console.log(res.feeds);
+      //console.log(res.feeds);
       setData(res.feeds);
     };
     fetchData();
@@ -32,22 +32,22 @@ const Buzzer = () => {
       //guardados todos
       estados[i] = parseInt(data[i].field5);
       
-      console.log("Estados: " + estados[i]);
+      //console.log("Estados: " + estados[i]);
     }
   }
 
 
 let est=-2;
   for(let i=estados.length; i>0; i--){
-    console.log("i: "+i);
-    console.log(estados[i]);
+    //console.log("i: "+i);
+    //console.log(estados[i]);
       if(estados[i] == 0 || estados[i] == 1){
         est = estados[i];
         break;
       }
   }
 
-  console.log("REsultado: "+est);
+  //console.log("REsultado: "+est);
 
   const [valueBuzzer, setValueBuzzer] = useState(false);
 
@@ -82,7 +82,7 @@ let est=-2;
     }
   };
 
-  console.log("estado1 " + estado1);
+  //console.log("estado1 " + estado1);
   return (
     <div className="container-button">
       <button
