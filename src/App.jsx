@@ -6,7 +6,7 @@ import './App.css'
 import { useAuth0 } from '@auth0/auth0-react';
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
-//import Profile from './components/Profile';
+import Profile from './components/Profile';
 
 
 import { MainGraph, Graph, Table } from './components/Graphics/MainGraph.jsx';
@@ -23,13 +23,20 @@ function App() {
 
 	return (
 		<div className="App">
+			
 			{
 				isAuthenticated ?
 				<LogoutButton />
 				:
 				<LoginButton />
 			}
-			<Nav />
+			<Profile />
+
+			<div>
+				
+			</div>
+			
+			
 			<div>
 				<Graph graph="temp" />
 				<Graph graph="hum" />
