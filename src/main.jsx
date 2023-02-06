@@ -3,22 +3,26 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 
-import { MainGraph, Graph, Table } from './components/Graphics/MainGraph.jsx';
-//import LineChart from './components/LineChart.jsx'
-import {Nav} from './components/Nav/Nav.jsx'
 
+// --- AUTH0 ---
+import { Auth0Provider } from "@auth0/auth0-react";
+const domain = import.meta.env.VITE_AUTH0_DOMAIN;
+const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
+
+
+//Elemento raiz
 const rootElement = ReactDOM.createRoot(document.getElementById('root'));
 
 rootElement.render(
 	<div> 
-		<Nav />
 
-		<div>
-			<Graph graph="temp" />
-			<Graph graph="hum" />
+		<Auth0Provider
+			domain={domain}
+			clientId={clientId}
+			redirectUri={window.location.origin}
+			>
+			<App />
+		</Auth0Provider>
 
-			
-			<Table />
-		</div>
 	</div>
 );
