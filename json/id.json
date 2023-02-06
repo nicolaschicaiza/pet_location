@@ -1,0 +1,36 @@
+{
+    "@id": "192.168.101.15",
+    "gateway": {
+       "propiedades": {
+          "nombre": "ESP32",
+          "modelo": "nodemcu 12E",
+          "fabricante": "EspressIf"
+       },
+       "recursos": [
+          {
+             "tipo": "sensor gps",
+             "senal": "analoga",
+             "voltaje": {
+                "@rangoinicial": "0",
+                "@rangofinal": "5"
+             }
+          },
+          {
+             "tipo": "Sensor Temperatura y humedad",
+             "senal": "digital",
+             "voltaje": {
+                "@rangoinicial": "0",
+                "@rangofinal": "5"
+             }
+          },
+              {
+             "tipo": "Buzzer",
+             "senal": "digital",
+             "voltaje": {
+                "@rangoinicial": "0",
+                "@rangofinal": "5"
+             }
+          }
+       ]
+    }
+ }
