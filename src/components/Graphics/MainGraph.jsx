@@ -1,11 +1,11 @@
 import React from 'react';
-import {getData} from '../../services/ThingSpeakService';
+import {getData, getDataAll} from '../../services/ThingSpeakService';
 import LineChart from './LineChart.jsx';
-import { Data } from "./Data";
+import Highlight from '../Highlight';
 
 /**
  * Obtiene los datos de la API de ThingSpeak y los muestra en la consola
- * @returns 
+ * @returns
  */
 export function MainGraph() {
     const data = getData();
@@ -18,8 +18,8 @@ export function MainGraph() {
 
 /**
  * Funcion que retorna una tabla con los datos de la API de ThingSpeak
- * @param {*} props 
- * @returns 
+ * @param {*} props
+ * @returns
  */
 export function Table(props) {
     const data = getData();
@@ -67,7 +67,7 @@ export function Graph(props) {
     //console.table(data);
 
     if(props.graph === "temp"){
-        
+
         //Areglo con los datos de la temperatura
         const temp = data.map((item, index) => (
             item.field3
@@ -100,4 +100,12 @@ export function Graph(props) {
     }
 
 
+}
+
+export function GetMetadata() {
+    const getAll = getDataAll();
+
+    return (
+        <p>{getAll.metadata}</p>
+    )
 }

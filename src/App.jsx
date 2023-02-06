@@ -1,45 +1,50 @@
-import React, { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React from 'react'
+import { Router, Route, Switch } from "react-router-dom";
+import { Container } from "reactstrap";
 
-// -- Auth0 --
+import Loading from "./components/Loading";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer.jsx";
+import Home from "./views/Home";
+import Profile from './views/Profile';
+import { Necklace } from './views/Necklace';
+import { Metadata } from './views/Metadata';
 import { useAuth0 } from '@auth0/auth0-react';
-import LoginButton from './components/LoginButton';
-import LogoutButton from './components/LogoutButton';
-import Profile from './components/Profile';
+import history from './utils/history';
 
+// styles
+import './App.css';
 
-import { MainGraph, Graph, Table } from './components/Graphics/MainGraph.jsx';
-//import LineChart from './components/LineChart.jsx'
-import { Nav } from './components/Nav/Nav.jsx'
-
-
+// fontawesome
+import initFontAwesome from './utils/initFontAwesome';
+initFontAwesome();
 
 function App() {
-	const [count, setCount] = useState(0)
+    const { isLoading, error } = useAuth0();
 
-	const { isAuthenticated, isLoading } = useAuth0();
-	if (isLoading) return <h1>Loading...</h1>
+    if (isLoading) {
+        return <Loading />
+    }
+
+    if (error) {
+        return <div>Oops... {error.message}</div>
+    }
 
 	return (
-		<div className="App">
-			
-			{
-				isAuthenticated ?
-				<LogoutButton />
-				:
-				<LoginButton />
-			}
-			{/* <Nav /> */}
-			<Profile />
-			<div>
-				<Graph graph="temp" />
-				<Graph graph="hum" />
-				
-			</div>
-
-			
-		</div>
+    <Router history={history}>
+      <div id="app" className="d-flex flex-column h-100">
+        <NavBar />
+        <Container className="flex-grow-1 mt-5">
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/necklace" component={Necklace} />
+            <Route path="/metadata" component={Metadata} />
+            <Route path="/profile" component={Profile} />
+          </Switch>
+        </Container>
+        <Footer />
+      </div>
+    </Router>
 	)
 }
 

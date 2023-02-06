@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { getDataFromThingSpeak } from "../services/ThingSpeakService";
 import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
 import { useMemo } from "react";
+import Loading from "./Loading";
 
 
 const containerStyle = {
   width: "100%",
   height: '500px',
- 
+
 };
 
 function DataDisplay() {
@@ -22,7 +23,7 @@ function DataDisplay() {
 
   useEffect(() => {
     const fetchData = async () => {
-     
+
 
       const channelId =import.meta.env.VITE_THINGSPEAK_CHANNEL_ID;
       const readKey = import.meta.env.VITE_THINGSPEAK_READKEY;
@@ -33,7 +34,7 @@ function DataDisplay() {
     };
     fetchData();
   }, []);
-  
+
   const markers = [];
 
   let cons = (data.length ) - 10;
@@ -44,9 +45,9 @@ function DataDisplay() {
         lat: parseFloat(data[i].field1),
         lng: parseFloat(data[i].field2),
       };
-      console.log(markers[i]); 
+      console.log(markers[i]);
     }
-   
+
   }
 
   const center = useMemo(() => ({ lat:  2.441926, lng: -76.607341 }), []);
@@ -57,11 +58,11 @@ function DataDisplay() {
   };
 
   return (
- 
+
 
     <div className="App">
       {!isLoaded ? (
-        <h1>Loading...</h1>
+        <Loading />
       ) : (
         <GoogleMap zoom={12} mapContainerStyle={containerStyle} onLoad={onLoad} center={center}>
           {markers.map(({ lat, lng }) => (
@@ -73,4 +74,4 @@ function DataDisplay() {
   );
 }
 
-export  {DataDisplay};
+export { DataDisplay };
