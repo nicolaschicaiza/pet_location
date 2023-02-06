@@ -1,0 +1,25 @@
+.container-button {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn--off {
+    background-color: red;
+}
+
+.btn--on {
+    background-color: green;
+}

@@ -1,7 +1,7 @@
 body{ margin:0; font-family:'tahoma'}
 
 nav {
-  position: fixed;
+  position: absolute;
   top: 0%;
   left: 0%;
   right: 0%;
