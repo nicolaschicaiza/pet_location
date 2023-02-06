@@ -29,7 +29,7 @@ function App() {
 				:
 				<LoginButton />
 			}
-			<Nav />
+			{/* <Nav /> */}
 			<div>
 				<Graph graph="temp" />
 				<Graph graph="hum" />

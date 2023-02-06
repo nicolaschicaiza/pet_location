@@ -14,7 +14,7 @@ const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
 const rootElement = ReactDOM.createRoot(document.getElementById('root'));
 
 rootElement.render(
-	<div> 
+
 
 		<Auth0Provider
 			domain={domain}
@@ -24,5 +24,5 @@ rootElement.render(
 			<App />
 		</Auth0Provider>
 
-	</div>
+	
 );
